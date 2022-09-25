@@ -19,18 +19,19 @@ window.onload = () => {
 const main = function () {
     const root = document.getElementById('root')
     const btn = document.getElementById('change-btn')
+    const hexOutput = document.getElementById('hexOutput')
 
-    btn.addEventListener('click', function () {    
-        root.style.backgroundColor = generateColor()
-        rgb.innerText = generateColor()
-        root.style.backgroundColor = generateColor()
+    btn.addEventListener('click', function () { 
+        const bgColor = generateHEXColor()   
+        root.style.backgroundColor = bgColor
+        hexOutput.value = bgColor
     })
 
 }
-const generateColor = function (){
+const generateHEXColor = function (){
     const red = Math.floor((Math.random() * 255))
     const green = Math.floor((Math.random() * 255))
     const blue = Math.floor((Math.random() * 255))
 
-    return `rgb(${red},${green},${blue})`
+    return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
 }
